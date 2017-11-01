@@ -1,0 +1,182 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<?init class="vmd.AuthCheckerVmd" ?>
+<zk>
+	<window title="Komponen" border="normal" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('vmd.LogoutVmd')">
+		WELCOME
+		<label value="${sessionScope.user.namaKaryawan}" />
+		!
+		<separator />
+		<separator />
+
+		<vlayout>
+			<hlayout>
+				<div width="120px">
+					<label value="Text Box: " />
+				</div>
+				<div>
+					<textbox type="text" value="Hello Word!" width="150px"
+						tabindex="1" />
+				</div>
+			</hlayout>
+			<hlayout>
+				<div width="120px">
+					<label value="Password Text Box: " />
+				</div>
+				<div>
+					<textbox type="password" value="Hello Word!" width="150px"
+						tabindex="1" />
+				</div>
+			</hlayout>
+			<hlayout>
+				<div width="120px">
+					<label value="Integer Box: " />
+				</div>
+				<div>
+					<intbox value="12345" width="150px" tabindex="1" />
+				</div>
+			</hlayout>
+			<hlayout>
+				<div width="120px">
+					<label value="Decimal Box: " />
+				</div>
+				<div>
+					<decimalbox value="12.20" width="150px" tabindex="1" />
+				</div>
+			</hlayout>
+			<hlayout>
+				<div width="120px">
+					<label value="Date Box: " />
+				</div>
+				<div>
+					<datebox format="dd-MM-yyyy" width="150px" onCreate="self.value=new Date();" />
+				</div>
+			</hlayout>
+			<hlayout>
+				<div width="120px">
+					<label value="Text Area: " />
+				</div>
+				<div>
+					<textbox value="Hello World!" rows="5" width="150px"
+						tabindex="1" />
+				</div>
+			</hlayout>
+			<hlayout>
+				<div width="120px">
+					<label value="Captcha: " />
+				</div>
+				<div>
+					<captcha value="hello" bgColor="#FDC966" fontColor="#000000"
+						width="150px" height="50px" frame="true" />
+				</div>
+			</hlayout>
+			<hlayout>
+				<div width="120px">
+					<label value="Checkbox: " />
+				</div>
+				<div>
+					<vlayout>
+						<checkbox label="Java" />
+						<checkbox label="PHP" />
+						<checkbox label="VB 6" />
+					</vlayout>
+				</div>
+			</hlayout>
+			<hlayout>
+				<div width="120px">
+					<label value="Radio Button: " />
+				</div>
+				<div>
+					<vlayout>
+						<radiogroup id="rg1" />
+						<radio id="ra1" label="Pria" radiogroup="rg1" />
+						<radio id="ra2" label="Wanita" radiogroup="rg1" />
+					</vlayout>
+				</div>
+			</hlayout>
+			<hlayout>
+				<div width="120px">
+					<label value="Button: " />
+				</div>
+				<div>
+					<button label="Ini Button!" />
+				</div>
+			</hlayout>
+
+			<hlayout>
+				<div width="120px">
+					<label value="Grid: " />
+				</div>
+				<div>
+					<grid mold="paging" pagingPosition="bottom" pageSize="5"
+						width="400px">
+						<columns>
+							<column label="No" align="center" width="50px" sort="auto" />
+							<column label="Nama" align="left" sort="auto" />
+						</columns>
+						<rows>
+							<row>
+								<label value="1" />
+								<label value="Satu" />
+							</row>
+							<row>
+								<label value="2" />
+								<label value="Dua" />
+							</row>
+							<row>
+								<label value="3" />
+								<label value="Tiga" />
+							</row>
+							<row>
+								<label value="4" />
+								<label value="Empat" />
+							</row>
+							<row>
+								<label value="5" />
+								<label value="Lima" />
+							</row>
+							<row>
+								<label value="6" />
+								<label value="Enam" />
+							</row>
+						</rows>
+					</grid>
+				</div>
+			</hlayout>
+			<hlayout>
+				<div width="120px">
+					<label value="List Box: " />
+				</div>
+				<div>
+					<listbox mold="paging" pagingPosition="bottom" pageSize="5"
+						width="400px">
+						<listhead>
+							<listheader label="No" align="center" width="50px"
+								sort="auto" />
+							<listheader label="Nama" align="left" sort="auto"
+								width="100px" />
+							<listheader label="Asal" width="100px" />
+						</listhead>
+						<listitem>
+							<listcell>
+								<label value="1" />
+							</listcell>
+							<listcell>
+								<label value="Satu" />
+							</listcell>
+							<listcell>
+								<listbox mold="select">
+									<listitem label="Jakarta" value="Jakarta" />
+									<listitem label="Surabaya" value="Surabaya" />
+								</listbox>
+							</listcell>
+						</listitem>
+					</listbox>
+				</div>
+			</hlayout>
+			<a href="/hitungLuasSegitiga.zul" label="Hitung Luas Segitiga!" />
+			<separator />
+			<button label="Logout" onClick="@command('logout')" />
+		</vlayout>
+	</window>
+</zk>

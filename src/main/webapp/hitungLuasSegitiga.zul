@@ -1,0 +1,35 @@
+<?page title="Hitung Luas Segitiga" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Hitung Luas Segitiga" border="normal"
+		apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('vmd.BindVmd')">
+
+		<grid>
+			<columns>
+				<column label="" width="150px" />
+				<column label="" width="200px" />
+			</columns>
+			<rows>
+				<row>
+					<label value="nama:" />
+					<textbox value="@bind(vm.nama)" />
+				</row>
+				<row>
+					<label value="alas:" />
+					<textbox value="@bind(vm.alas)" />
+				</row>
+				<row>
+					<label value="tinggi:" />
+					<textbox value="@bind(vm.tinggi)" />
+				</row>
+				<row>
+					<button label="klik" onClick="@command('klik')" />
+					<button label="hitung" onClick="@command('hitung')" />
+				</row>
+				<row>
+					<label value="luas" />
+					<label value="@load(vm.luas)" />
+				</row>
+			</rows>
+		</grid>
+	</window>
+</zk>

@@ -1,0 +1,6 @@
+<?page title="Test Web ZK" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Test Web ZK" border="normal">
+
+	</window>
+</zk>

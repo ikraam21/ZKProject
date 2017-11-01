@@ -1,0 +1,36 @@
+<?page title="Transaksi" contentType="text/html;charset=UTF-8"?>
+<?init class="vmd.AuthCheckerVmd" ?>
+<zk>
+	<window title="Transaksi" border="normal" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('vmd.PenjualanVmd')">
+
+		<hlayout>
+			<button label="add" onClick="@command('add')" />
+			<button label="edit" onClick="@command('edit')" />
+			<button label="delete" onClick="@command('delete')" />
+		</hlayout>
+		<div style="text-align:right">
+			<label value="search" />
+			<textbox value="@bind(vm.search)" onOK="@command('search')" />
+		</div>
+		<space />
+		<listbox model="@load(vm.listHeader)" selectedItem="@bind(vm.trHeaderPenjualan)">
+			<listhead>
+				<listheader label="No Nota" sort="auto" />
+				<listheader label="Tanggal Transaksi" sort="auto" />
+				<listheader label="Harga Total" sort="auto" />
+				<listheader label="Customer" sort="auto" />
+				<listheader label="Karyawan" sort="auto" />
+			</listhead>
+			<template name="model">
+				<listitem>
+					<listcell label="@load(each.noNota)" />
+					<listcell label="@load(each.tanggalTransaksi)" />
+					<listcell label="@load(each.hargaTotal)" />
+					<listcell label="@load(each.mstCustomer.namaCustomer)" />
+					<listcell label="@load(each.mstKaryawan.namaKaryawan)" />
+				</listitem>
+			</template>
+		</listbox>
+	</window>
+</zk>
