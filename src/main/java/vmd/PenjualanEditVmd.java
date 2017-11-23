@@ -3,6 +3,7 @@ package vmd;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.zkoss.bind.BindUtils;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
@@ -309,7 +310,16 @@ public class PenjualanEditVmd {
 	@Command("removeDetail")
 	@NotifyChange("listDetail")
 	public void removeDetail() {
-		listDetail.remove(trDetailPenjualan);
+		try{
+			trDetailPenjualanSvc.delete(trDetailPenjualan.getKodeDetail());
+			listDetail.remove(trDetailPenjualan);
+			BindUtils.postNotifyChange(null, null, PenjualanEditVmd.this, "listDetail");
+			Clients.showNotification("Data berhasil di delete",
+					Clients.NOTIFICATION_TYPE_INFO, null, null, 500);
+			}catch(NullPointerException e){
+				Messagebox.show("Pilih data yang akan diedit!");
+			}
+		
 	}
 
 	@Command("hitungSubTotal")

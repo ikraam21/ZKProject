@@ -65,7 +65,7 @@
 					<button label="add" onClick="@command('addDetail')"
 						visible="@load(vm.visible)" />
 					<button label="delete"
-						onClick="@command('removeDetail')" visible="@load(vm.visible)" />
+						onClick="@command('removeDetail')"  />
 					<space />
 				</hbox>
 				<separator />
